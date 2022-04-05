@@ -32,15 +32,22 @@ function validateEmailInput(event){
     console.log('email input blur');
     var emailInputValue = event.target.value;
     console.log('value:', emailInputValue);
+    var afterAtSign = "";
+    var afterDot = "";
 
     var emailInputError = document.getElementById('email-error');
     if(emailInputValue == '') return;
-    if(!emailInputValue.includes('@')){
+
+    if(!emailInputValue.includes('@') || !emailInputValue.includes('.')){
         emailInputError.innerText = 'ERROR! Not a valid email-address';
     }
     else{
+        afterAtSign = emailInputValue.slice(emailInputValue.indexOf('@')+1);
+        afterDot = emailInputValue.slice(emailInputValue.indexOf('.')+1);
         emailInputError.innerText = '';
     }
+    console.log('afterAtSign:', afterAtSign);
+    console.log('afterDot:', afterDot);
 }
 
 nameInput.addEventListener('blur', validateNameInput);
