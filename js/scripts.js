@@ -4,12 +4,7 @@ var nameInput = document.getElementById('name');
 
 console.log(nameInput);
 
-nameInput.addEventListener('focus', function(){
-    console.log('name input focus');
-});
-
-nameInput.addEventListener('blur', function(event){
-
+function validateNameInput(event){
     console.log('name input blur');
     var nameInputValue = event.target.value;
     console.log('value:', nameInputValue);
@@ -29,5 +24,10 @@ nameInput.addEventListener('blur', function(event){
     if (nameInputValue.length > 15) {
         nameInputError.innerText = 'ERROR! Name should have less than 15 characters';
     }
+}
 
+nameInput.addEventListener('focus', function(){
+    console.log('name input focus');
 });
+
+nameInput.addEventListener('blur', validateNameInput);
