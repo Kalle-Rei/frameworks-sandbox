@@ -1,6 +1,7 @@
 console.log('scripts.js file');
 
 var nameInput = document.getElementById('name');
+var emailInput = document.getElementById('email');
 
 console.log(nameInput);
 
@@ -26,14 +27,12 @@ function validateNameInput(event){
     }
 }
 
-var emailInput = document.getElementById('email');
-
 function validateEmailInput(event){
-    console.log('email input blur');
     var emailInputValue = event.target.value;
-    console.log('value:', emailInputValue);
     var afterAtSign = "";
     var afterDot = "";
+    console.log('email input blur');
+    console.log('value:', emailInputValue);
 
     var emailInputError = document.getElementById('email-error');
     if(emailInputValue == '') return;
@@ -46,6 +45,7 @@ function validateEmailInput(event){
         afterDot = emailInputValue.slice(emailInputValue.indexOf('.')+1);
         emailInputError.innerText = '';
     }
+    //@TODO: use afterAtSign and afterDot to manually check if the email is valid
     console.log('afterAtSign:', afterAtSign);
     console.log('afterDot:', afterDot);
 }
