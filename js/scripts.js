@@ -42,7 +42,7 @@ function validateEmailInput(event){
         emailInputError.innerText = 'ERROR! Not a valid email-address';
     }
     else{
-        afterAtSign = emailInputValue.slice(emailInputValue.indexOf('@')+1);
+        afterAtSign = emailInputValue.slice(emailInputValue.indexOf('@')+1, emailInputValue.indexOf('.'));
         afterDot = emailInputValue.slice(emailInputValue.indexOf('.')+1);
         emailInputError.innerText = '';
     }
