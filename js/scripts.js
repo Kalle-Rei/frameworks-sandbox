@@ -26,8 +26,22 @@ function validateNameInput(event){
     }
 }
 
-nameInput.addEventListener('focus', function(){
-    console.log('name input focus');
-});
+var emailInput = document.getElementById('email');
+
+function validateEmailInput(event){
+    console.log('email input blur');
+    var emailInputValue = event.target.value;
+    console.log('value:', emailInputValue);
+
+    var emailInputError = document.getElementById('email-error');
+    if(emailInputValue == '') return;
+    if(!emailInputValue.includes('@')){
+        emailInputError.innerText = 'ERROR! Not a valid email-address';
+    }
+    else{
+        emailInputError.innerText = '';
+    }
+}
 
 nameInput.addEventListener('blur', validateNameInput);
+emailInput.addEventListener('blur', validateEmailInput);
